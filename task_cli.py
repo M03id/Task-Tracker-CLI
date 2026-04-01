@@ -129,6 +129,9 @@ def main():
         except ValueError:
             print("Invalid task ID. Please provide a numeric ID." \
                   "Example: task delete 1")
+    
+    elif cmd == "delete-all":
+        delete_all_tasks()
 
     else:
         print("Unknown command. Use: add, update, delete, list")
