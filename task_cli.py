@@ -51,12 +51,9 @@ def mark(task_id, status):
 # Delete a task by ID
 def delete_task(task_id):
     tasks = load_tasks()
-    try:
-        if tasks[task_id]:  
-            print(f"Deleted task ID {task_id}")
-        else:
-            print(f"Task with ID {task_id} not found.")
-    except IndexError:
+    if tasks[task_id]:  
+        print(f"Deleted task ID {task_id}")
+    else:
         print(f"Task with ID {task_id} not found.")
     tasks = [t for t in tasks if t["id"] != task_id ]
     save_tasks(tasks)
@@ -113,16 +110,25 @@ def main():
         list_tasks(status)
 
     elif cmd == "update":
-        update_task(int(args[2]), " ".join(args[3:]))
+        try :
+            update_task(int(args[2]), " ".join(args[3:]))
+        except ValueError:
+            print("Invalid task. Please write a numeric ID. " \
+            "Example: task update 1 New task text")
 
     elif cmd == "mark":
-        mark(int(args[2]), args[3])
+        try :
+            mark(int(args[2]), args[3])
+        except ValueError:
+            print("Invalid task ID. Please provide a numeric ID. "\
+            "Example: task mark 1 done")
 
     elif cmd == "delete":
-        delete_task(int(args[2]))
-
-    elif cmd == "delete-all":
-        delete_all_tasks()
+        try :
+            delete_task(int(args[2]))
+        except ValueError:
+            print("Invalid task ID. Please provide a numeric ID." \
+                  "Example: task delete 1")
 
     else:
         print("Unknown command. Use: add, update, delete, list")
