@@ -20,7 +20,7 @@ A simple command-line task manager built with Python.
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/task-cli.git
+git clone https://github.com/M03id/Task-Tracker-CLI.git
 cd task-cli
 ```
 
