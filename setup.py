@@ -7,7 +7,7 @@ setup(
     py_modules=["task_cli"],
     entry_points={
         "console_scripts": [
-            "task=task_cli:main"
+            "task-cli=task_cli:main"
         ]
     }
 )
