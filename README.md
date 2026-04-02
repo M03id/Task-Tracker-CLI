@@ -21,7 +21,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/M03id/Task-Tracker-CLI.git
-cd task-cli
+cd task-tracker-cli
 ```
 
 Install the tool:
